@@ -18,5 +18,70 @@ class Info_nutri
        self.vitaminas = vitaminas
        self.porciones = porciones
        self.gramos = gramos 
+   end
+   
+   def calculate_Julios
+        return (37*grasas + 37*monoinsaturadas + 37*poliinsaturadas + 17*hidratos_carbono + 17*azucares + 10*polialcoholes + 17*almidon + 8*fibra + 17*proteina + 25*sal)*porciones
+    end
+    
+    def calculate_Kcal
+        return (9*grasas + 9*monoinsaturadas + 9*poliinsaturadas + 4*hidratos_carbono + 4*azucares + 2.4*polialcoholes + 4*almidon + 2*fibra + 4*proteina + 6*sal)*porciones
+    end
+    
+    def getNombre
+        return @nombre
+    end
+    
+    def getCalorias
+        return @calorias
+    end
+    
+    def getGrasas
+        return @grasas
+    end
+    
+    def getGrasasSaturadas
+        return @grasa_saturada
+    end
+    
+    def getHidratos
+        return @hidratos_carbono
+    end
+    
+    def getAzucares
+        return @azucares
+    end
+    
+    def getProteinas
+        return @proteina
+    end
+    
+    def getSal
+        return @sal
+    end
+    
+    def getMonoInsaturada
+        return @monoinsaturadas
+    end
+    
+    def getPoliinsaturada
+        return @poliinsaturadas
+    end
+    
+    def getPolialcoholes
+        return @polialcoholes
+    end
+    
+    def getAlmidon
+        return @almidon
+    end
+    
+    def getFibra
+        return @fibra
+    end
+    
+    def getVitamina
+        return @vitaminas
+    end
     
 end
