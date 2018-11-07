@@ -4,3 +4,8 @@ require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
+
+desc "archivo para hacer las pruebas"
+task :spec do
+   sh "rspec -I. spec/etiqueta_spec.rb"
+end

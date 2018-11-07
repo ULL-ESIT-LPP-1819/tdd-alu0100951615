@@ -1,4 +1,7 @@
-RSpec.describe Etiqueta do
+require "spec_helper"
+require 'benchmark'
+
+Spec.describe Etiqueta do
   it "has a version number" do
     expect(Etiqueta::VERSION).not_to be nil
   end
