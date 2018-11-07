@@ -1,12 +1,7 @@
 require "spec_helper"
 require 'benchmark'
 
-Spec.describe Etiqueta do
-  it "has a version number" do
-    expect(Etiqueta::VERSION).not_to be nil
-  end
+Spec.describe Info_nutri do
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+
 end
