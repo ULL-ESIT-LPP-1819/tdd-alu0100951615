@@ -1,11 +1,13 @@
 require "spec_helper"
 require 'benchmark'
 
-Spec.describe Info_nutri do
+RSpec.describe Info_nutri do
+
   before :each do
     @etiqueta = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
   end
-  
+#Nombre,Energía,Grasas,Grasas Saturadas,Hidratos,Azúcares,Proteínas,Sal,Monoinsaturadas,Polinsaturadas,Polialcoholes,Almidón,Fibra,Vitaminas/minerales,raciones,cantidad(g)
+
   describe "Se cumple el almacenamiento de datos" do
     
     it "Debe existir el nombre del producto en la etiqueta" do
@@ -68,5 +70,72 @@ Spec.describe Info_nutri do
       expect(@etiqueta.gramos).to eq(500)
     end
   end
-
+  
+  describe "#Tests para los métodos " do
+    it "Metodo para obtener los KJ " do
+    expect(@etiqueta.calculate_Julios).to eq(1624.8)  
+    end
+    
+    it "Metodo para obtener las Kcal " do
+      expect(@etiqueta.calculate_Kcal).to eq(390.24)
+    end
+    
+    it "Metodo para obtener el nombre " do
+      expect(@etiqueta.getNombre).to eq("Pollo")
+    end
+    
+    it "Metodo para obtener la energia " do
+      expect(@etiqueta.getCalorias).to eq(1000)
+    end
+    
+    it "Metodo para obtener las grasas " do
+      expect(@etiqueta.getGrasas).to eq(5.5)
+    end
+    
+    it "Metodo para obtener las grasas saturadas" do
+      expect(@etiqueta.getGrasasSaturadas).to eq(0.5)
+    end
+    
+    it "Metodo para obtener los hidratos de carbono" do
+      expect(@etiqueta.getHidratos).to eq(2)
+    end
+    
+    it "Metodo para obtener los azucares" do
+      expect(@etiqueta.getAzucares).to eq(3.5)
+    end
+    
+    it "Metodo para obtener la proteina" do
+      expect(@etiqueta.getProteinas).to eq(0.7)
+    end
+    
+    it "Metodo para obtener la sal " do
+      expect(@etiqueta.getSal).to eq(5)
+    end
+    
+    it "Metodo para obtener las grasas monoinsaturadas " do
+      expect(@etiqueta.getMonoInsaturada).to eq(1.6)
+    end
+    
+    it "Metodo para obtener las grasas poliinsaturadas" do
+      expect(@etiqueta.getPoliinsaturada).to eq(2.7)
+    end
+    
+    it "Metodo para obtener los polialcoholes" do
+      expect(@etiqueta.getPolialcoholes).to eq(4.8)
+    end
+    
+    it "Metodo para obtener el almidon" do
+      expect(@etiqueta.getAlmidon).to eq(9)
+    end
+    
+    it "Metodo para obtener la fibra " do
+      expect(@etiqueta.getFibra).to eq(2.3)
+    end
+    
+    it "Metodo para obtener las vitaminas y los minerales " do
+      expect(@etiqueta.getVitamina).to eq(3.7)
+    end
+    
+  end
+  
 end
