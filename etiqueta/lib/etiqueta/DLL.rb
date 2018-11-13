@@ -44,4 +44,24 @@ class DLL
         string += ")"
         return string
     end
+    def clasificacion
+        puntero = @head
+        puntero2 = ""
+        cart = Array.new
+        while (puntero != nil) do
+            if (puntero.value.getSal <= 4)
+                puntero2 = "Bajo en Sal"
+            end
+            if (puntero.value.getSal > 4 && puntero.value.getSal <= 20)
+                puntero2 = "Medio en Sal"
+            end
+            if(puntero.value.getSal > 20)
+                puntero2 = "Alto en Sal"
+            end
+            cart.push(puntero.value.getNombre + "," + " " + puntero2)
+            puntero = puntero.next_
+        end
+       cart.sort
+    end
+    
 end
