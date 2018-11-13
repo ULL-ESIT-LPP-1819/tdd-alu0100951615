@@ -34,4 +34,14 @@ class DLL
        @tail.next_ = nil
        return puntero
     end
+    def to_s
+        string = "("
+        puntero = @head
+        while (puntero != nil) do
+            string += "#{puntero.value.getSal} gr,"
+            puntero = puntero.next_
+        end
+        string += ")"
+        return string
+    end
 end
