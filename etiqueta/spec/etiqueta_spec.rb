@@ -164,6 +164,10 @@ RSpec.describe Etiqueta do
       expect(@dll1.head).not_to eq(nil)
     end
     
+    it "Se ha introducido bien la cola" do
+      expect(@dll1.tail).not_to eq(nil)
+    end
+    
     end
   end
 end
