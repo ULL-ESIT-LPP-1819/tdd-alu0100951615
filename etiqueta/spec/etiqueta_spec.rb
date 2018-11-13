@@ -198,6 +198,18 @@ RSpec.describe Etiqueta do
       expect(@dll1.to_s).to eq("(1 gr,5 gr,10 gr,20 gr,50 gr,1 gr,)")
     end
   end
+  context "Clasificación según gramos de Sal" do
+    it "Se imprime bien la clasificación por gramos de sal" do
+      @dll1.insert_tail(@etiqueta2)
+      @dll1.insert_tail(@etiqueta3)
+      @dll1.insert_tail(@etiqueta4)
+      @dll1.insert_tail(@etiqueta5)
+      @dll1.insert_tail(@etiqueta1)
+      expect(@dll1.clasificacion).to eq(["Almendras, Medio en Sal", 
+      "Bacalao, Alto en Sal", "Lechuga, Bajo en Sal", "Lechuga, Bajo en Sal", 
+      "Papas Fritas, Medio en Sal", "Pollo, Medio en Sal"])
+    end
+  end
     
   end
 end
