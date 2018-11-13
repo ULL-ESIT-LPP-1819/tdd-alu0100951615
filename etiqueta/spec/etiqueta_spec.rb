@@ -183,6 +183,11 @@ RSpec.describe Etiqueta do
       @dll1.insert_head(@etiqueta4)
       expect(@dll1.extract_head).to eq(@etiqueta4)
     end
+    
+    it "Extraer nodo en tail_" do
+      @dll1.insert_tail(@etiqueta5)
+      expect(@dll1.extract_tail).to eq(@etiqueta5)
+    end
   end
     
   end
