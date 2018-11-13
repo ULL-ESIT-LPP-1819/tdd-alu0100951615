@@ -1,7 +1,7 @@
 require "spec_helper"
 require 'benchmark'
 
-RSpec.describe Info_nutri do
+RSpec.describe Etiqueta do
 
   before :each do
     @etiqueta = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -138,4 +138,28 @@ RSpec.describe Info_nutri do
     
   end
   
+  describe DLL do
+    before :each do
+   
+    @valor1 = 1
+    @valor2 = 5
+    @valor3 = 10
+    @valor4 = 20
+    @valor5 = 50
+    @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,@valor1,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta2 = Info_nutri.new("Almendras",1000,5.5,0.5,2,3.5,0.7,@valor2,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta3 = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,@valor3,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta4 = Info_nutri.new("Papas Fritas",1000,5.5,0.5,2,3.5,0.7,@valor4,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta5 = Info_nutri.new("Bacalao",1000,5.5,0.5,2,3.5,0.7,@valor5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    
+    @dll1 = DLL.new(@etiqueta1)
+  end
+  
+    describe "Pruebas de la creación" do
+    it "Se ha creado bien la lista" do
+      expect(@dll1).not_to eq(nil)
+    end
+    
+    end
+  end
 end
