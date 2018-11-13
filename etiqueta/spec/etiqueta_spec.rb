@@ -178,6 +178,11 @@ RSpec.describe Etiqueta do
       @dll1.insert_tail(@etiqueta3)
       expect(@dll1.tail.value.getSal).to eq(@valor3)
     end
+    
+    it "Extraer nodo en head_" do
+      @dll1.insert_head(@etiqueta4)
+      expect(@dll1.extract_head).to eq(@etiqueta4)
+    end
   end
     
   end
