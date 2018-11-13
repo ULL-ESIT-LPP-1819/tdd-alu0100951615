@@ -167,7 +167,13 @@ RSpec.describe Etiqueta do
     it "Se ha introducido bien la cola" do
       expect(@dll1.tail).not_to eq(nil)
     end
-    
     end
+    context "Metodos de la lista " do
+    it "Insertar nodo en head_" do
+      @dll1.insert_head(@etiqueta2)
+      expect(@dll1.head.value.getSal).to eq(@valor2)
+    end
+  end
+    
   end
 end
