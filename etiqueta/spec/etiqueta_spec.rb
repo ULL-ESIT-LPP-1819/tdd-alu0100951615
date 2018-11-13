@@ -173,6 +173,11 @@ RSpec.describe Etiqueta do
       @dll1.insert_head(@etiqueta2)
       expect(@dll1.head.value.getSal).to eq(@valor2)
     end
+    
+    it "Insertar nodo en tail " do
+      @dll1.insert_tail(@etiqueta3)
+      expect(@dll1.tail.value.getSal).to eq(@valor3)
+    end
   end
     
   end
