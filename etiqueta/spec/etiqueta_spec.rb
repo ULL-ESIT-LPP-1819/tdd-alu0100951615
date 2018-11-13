@@ -188,6 +188,15 @@ RSpec.describe Etiqueta do
       @dll1.insert_tail(@etiqueta5)
       expect(@dll1.extract_tail).to eq(@etiqueta5)
     end
+    
+    it "Se imprime correctamente la clase con los gramos de Sal" do
+      @dll1.insert_tail(@etiqueta2)
+      @dll1.insert_tail(@etiqueta3)
+      @dll1.insert_tail(@etiqueta4)
+      @dll1.insert_tail(@etiqueta5)
+      @dll1.insert_tail(@etiqueta1)
+      expect(@dll1.to_s).to eq("(1 gr,5 gr,10 gr,20 gr,50 gr,1 gr,)")
+    end
   end
     
   end
