@@ -44,6 +44,7 @@ class DLL
         string += ")"
         return string
     end
+    
     def clasificacion
         puntero = @head
         puntero2 = ""
@@ -64,4 +65,23 @@ class DLL
        cart.sort
     end
     
+    def clasificacionImc
+        aux = @head
+        cart = Array.new
+        while(aux != nil) do
+        if(aux.value.calculateimc < 18.5)
+            aux.value.calculateimc = 'delgado'
+        end
+        if(aux.value.calculateimc >= 18.5 && aux.value.calculateimc < 24.9)
+            aux.value.valor = 'medio'
+        end
+        if(aux.value.calculateimc >= 24.9)
+            aux.value.value = 'obeso'
+        end
+        
+        cart.push(aux.value.nombre + "," + " " + aux.value.valor)
+        aux = aux.next_
+    end
+    cart.sort
+end
 end

@@ -7,7 +7,7 @@ task :default => :spec
 
 desc "archivo para hacer las pruebas"
 task :spec do
-   sh "rspec -I. spec/individuo_spec.rb"
-   sh "rspec -I. spec/dll_spec.rb"
-   sh "rspec -I. spec/etiqueta_spec.rb"
+#   sh "rspec -I. spec/individuo_spec.rb"
+#   sh "rspec -I. spec/dll_spec.rb"
+#   sh "rspec -I. spec/etiqueta_spec.rb"
 end
