@@ -70,13 +70,13 @@ class DLL
         cart = Array.new
         while(aux != nil) do
         if(aux.value.calculateimc < 18.5)
-            aux.value.calculateimc = 'delgado'
+            aux.value.valor = 'delgado'
         end
         if(aux.value.calculateimc >= 18.5 && aux.value.calculateimc < 24.9)
             aux.value.valor = 'medio'
         end
         if(aux.value.calculateimc >= 24.9)
-            aux.value.value = 'obeso'
+            aux.value.valor = 'obeso'
         end
         
         cart.push(aux.value.nombre + "," + " " + aux.value.valor)

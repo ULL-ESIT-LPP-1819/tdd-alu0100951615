@@ -18,6 +18,30 @@ describe "#Pruebas para un paciente : " do
     it "Es una instancia de la clase Paciente " do
        expect(@persona1.instance_of?Paciente).to eq(true) 
     end
+    
+    it "Es un objeto Paciente " do
+        expect(@persona1.is_a?Paciente).to eq(true)
+    end
+    
+    it "Pertenece a la clase Paciente" do
+        expect(@persona1.class).to eq(Paciente)
+    end
+    
+    it "Su tipo corresponde con el de Paciente " do
+    expect(@persona1.respond_to?(:peso)).to eq(true)
+	expect(@persona1.respond_to?(:talla)).to eq(true)
+	expect(@persona1.respond_to?(:calculateimc)).to eq(true)
+	expect(@persona1.respond_to?(:calculatePorcentaje)).to eq(true)
+    end
+    
+    it "Se ha recogido su talla" do
+    expect(@persona1.talla).not_to eq (nil)
+	end
+	
+	it "Se ha recogido su peso" do
+    expect(@persona1.peso).not_to eq (nil)
+	end
+    
 end
 
 

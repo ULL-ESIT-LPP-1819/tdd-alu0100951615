@@ -73,4 +73,21 @@ RSpec.describe DLL do
       "Papas Fritas, Medio en Sal", "Pollo, Medio en Sal"])
     end
   end
+  
+  context "#Comprobando lista de humanos" do
+    it "Clasificacion de IMC" do
+        @persona1 = Paciente.new("Daniel",50,1.50,70,"Hombre",nil,nil,nil);
+        @persona2 = Paciente.new("Sheila",70,1.70,60,"Mujer",nil,nil,nil);
+        @persona3 = Paciente.new("Miguel",100,1.90,80,"Hombre",nil,nil,nil);
+        @persona4 = Paciente.new("Pablo",80,1.70,120,"Hombre",nil,nil,nil);
+        @persona5 = Paciente.new("Paula",60,1.80,15,"Mujer",nil,nil,nil);
+        @lista = DLL.new(@persona1)
+        @lista.insert_tail(@persona2)
+        @lista.insert_tail(@persona3)
+        @lista.insert_tail(@persona4)
+        @lista.insert_tail(@persona5)
+      
+      expect(@lista.clasificacionImc).to eq(["Daniel, medio", "Miguel, obeso", "Pablo, obeso", "Paula, medio", "Sheila, medio"])
+    end
+  end
 end
