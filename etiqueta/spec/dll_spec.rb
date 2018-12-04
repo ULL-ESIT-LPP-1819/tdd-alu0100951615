@@ -168,5 +168,27 @@ RSpec.describe DLL do
 	    	expect(@lista.sort).to eq([@prueba3, @prueba1, @prueba5, @prueba2, @prueba4])
 	    end
 	end
+	
+	context "#Pruebas de la lista del modulo enumerable en la clase Persona" do
+	    it "Máximo valor" do
+	    	expect(@lista2.max).to eq(@persona1)
+	    end
+	    
+	    it "Mínimo valor" do
+	    	expect(@lista2.min).to eq(@persona3)
+	    end
+	    
+	    it "Collect" do
+	    	expect(@lista2.collect{"vale"}).to eq(["vale", "vale", "vale", "vale", "vale"])
+	    end
+	    
+	    it "Select" do
+	    	expect(@lista2.select{|num| num < @persona5}).to eq([@persona3,@persona4])
+	    end
+	    
+	    it "Sort" do
+	    	expect(@lista2.sort).to eq([@persona3, @persona4, @persona5, @persona2, @persona1])
+	    end
+	end
   
 end
