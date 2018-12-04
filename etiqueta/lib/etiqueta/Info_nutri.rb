@@ -1,5 +1,7 @@
 class Info_nutri
     
+    include Comparable
+    
     attr_accessor :nombre,:calorias, :grasas, :grasa_saturada, :hidratos_carbono, :azucares, :proteina, :sal, :monoinsaturadas, :poliinsaturadas, :polialcoholes, :almidon, :fibra, :vitaminas, :porciones, :gramos
     def initialize(nombre,calorias,grasas,grasa_saturada,hidratos_carbono,azucares,proteina,sal,monoinsaturadas,poliinsaturadas,polialcoholes,almidon,fibra,vitaminas,porciones,gramos)
        self.nombre = nombre
@@ -19,6 +21,10 @@ class Info_nutri
        self.porciones = porciones
        self.gramos = gramos 
    end
+   
+    def <=>(other)
+        [self.nombre,self.calorias,self.grasas,self.grasa_saturada,self.hidratos_carbono,self.azucares,self.proteina,self.sal,self.monoinsaturadas,self.poliinsaturadas,self.polialcoholes,self.almidon,self.fibra,self.vitaminas,self.porciones,self.gramos] <=> [other.nombre,other.calorias,other.grasas,other.grasa_saturada,other.hidratos_carbono,other.azucares,other.proteina,other.sal,other.monoinsaturadas,other.poliinsaturadas,other.polialcoholes,other.almidon,other.fibra,other.vitaminas,other.porciones,other.gramos]
+    end
    
    def calculate_Julios
         return (37*grasas + 37*monoinsaturadas + 37*poliinsaturadas + 17*hidratos_carbono + 17*azucares + 10*polialcoholes + 17*almidon + 8*fibra + 17*proteina + 25*sal)*porciones
@@ -84,4 +90,5 @@ class Info_nutri
         return @vitaminas
     end
     
+
 end

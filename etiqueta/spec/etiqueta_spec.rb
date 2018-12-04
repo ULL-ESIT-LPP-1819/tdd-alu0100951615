@@ -5,6 +5,8 @@ RSpec.describe Etiqueta do
 
   before :each do
     @etiqueta = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta1 = Info_nutri.new("Pavo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta2 = Info_nutri.new("Pavo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
   end
 #Nombre,Energía,Grasas,Grasas Saturadas,Hidratos,Azúcares,Proteínas,Sal,Monoinsaturadas,Polinsaturadas,Polialcoholes,Almidón,Fibra,Vitaminas/minerales,raciones,cantidad(g)
 
@@ -134,6 +136,13 @@ RSpec.describe Etiqueta do
     
     it "Metodo para obtener las vitaminas y los minerales " do
       expect(@etiqueta.getVitamina).to eq(3.7)
+    end
+    
+  end
+  
+  describe "#Pruebas para el modulo comparable" do
+    it "etiquetas iguales" do
+      expect(@etiqueta1 == @etiqueta2).to eq(true)
     end
     
   end
