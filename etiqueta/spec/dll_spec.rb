@@ -36,6 +36,42 @@ RSpec.describe DLL do
     @dll3.insert_tail(@paciente5)
     
     
+    
+    
+    #Tests para practica 9
+    @value1 = 25
+    @value2 = 21
+    @value3 = 3
+    @value4 = 18
+  	@value5 = 9
+    @prueba1 = Info_nutri.new("Hamburguesa",5000,9.5,0.6,5,3.5,0.7,@value1,4,2.7,1.6,7,2.3,5.3,7,500)
+    @prueba2 = Info_nutri.new("Perrito",1000,5.5,0.5,2,3.5,0.7,@value2,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @prueba3 = Info_nutri.new("Flan",1000,5.5,0.5,2,3.5,0.7,@value3,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @prueba4 = Info_nutri.new("Pizza",5000,9.5,0.6,5,3.5,0.7,@value4,4,2.7,1.6,7,2.3,5.3,7,500)
+    @prueba5 = Info_nutri.new("Helado",1000,5.5,0.5,2,3.5,0.7,@value5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @lista = DLL.new(@prueba1)
+    @lista.insert_tail(@prueba2)
+    @lista.insert_tail(@prueba3)
+    @lista.insert_tail(@prueba4)
+    @lista.insert_tail(@prueba5)
+    	
+    @persona1 = Paciente.new("Martín",80, 2.50, 25,"Hombre",nil, nil, nil)
+    @persona2 = Paciente.new("Lucía", 85, 1.70, 20, "Mujer", nil, nil, nil)
+    @persona3 = Paciente.new("Alejandro", 75, 1.20, 16, "Hombre", nil, nil, nil)
+    @persona4 = Paciente.new("Daniel", 115, 1.10, 20, "Hombre", nil, nil, nil)
+    @persona5 = Paciente.new("Eduardo", 70, 1.78, 14, "Hombre", nil, nil, nil)
+    @lista2 = DLL.new(@persona1)
+    @lista2.insert_tail(@persona2)
+    @lista2.insert_tail(@persona3)
+    @lista2.insert_tail(@persona4)
+    @lista2.insert_tail(@persona5)
+    
+    
+    
+    
+    
+    
+    
   end
   
     describe "Pruebas de la creación" do
@@ -111,13 +147,26 @@ RSpec.describe DLL do
     end
   end
   
-  context "#Pruebas de la lista del modulo enumerable en la clase Info_Nutri" do
-    it "Maximo" do
-      expect(@dll2.max).to eq(@etiqueta3)
-    end
-    it "Mínimo" do
-      expect(@dll2.min).to eq(@etiqueta2)
-    end
-  end
+  context "#Pruebas de la lista del modulo enumerable en la clase Nutrientes" do
+	    it "Máximo valor" do
+	    	expect(@lista.max).to eq(@prueba4)
+	    end
+	    
+	    it "Mínimo valor" do
+	    	expect(@lista.min).to eq(@prueba3)
+	    end
+	    
+	    it "Collect" do
+	    	expect(@lista.collect{"vale"}).to eq(["vale", "vale", "vale", "vale", "vale"])
+	    end
+	    
+	    it "Select" do
+	    	expect(@lista.select{|num| num < @prueba5}).to eq([@prueba1,@prueba3])
+	    end
+	    
+	    it "Sort" do
+	    	expect(@lista.sort).to eq([@prueba3, @prueba1, @prueba5, @prueba2, @prueba4])
+	    end
+	end
   
 end
