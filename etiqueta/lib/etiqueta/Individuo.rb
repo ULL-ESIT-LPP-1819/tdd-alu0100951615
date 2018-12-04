@@ -13,6 +13,9 @@ class Individuo
 end  
     
     class Paciente < Individuo
+        
+        include Comparable
+        
        attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor
        
        def initialize(nombre,peso,talla,edad,sexo,porcentaje,imc,valor)
@@ -25,6 +28,10 @@ end
            @porcentaje = porcentaje
            @imc = imc
            @valor = valor
+       end
+       
+       def <=>(other)
+          [self.nombre,self.peso,self.talla,self.edad,self.sexo,self.porcentaje,self.imc,self.valor] <=> [other.nombre,other.peso,other.talla,other.edad,other.sexo,other.porcentaje,other.imc,other.valor] 
        end
        
        def calculateimc

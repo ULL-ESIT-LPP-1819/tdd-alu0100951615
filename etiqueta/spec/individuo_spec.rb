@@ -8,6 +8,7 @@ RSpec.describe Paciente do
         @persona3 = Paciente.new("Miguel",100,1.90,80,"Hombre",nil,nil,nil);
         @persona4 = Paciente.new("Pablo",80,1.70,120,"Hombre",nil,nil,nil);
         @persona5 = Paciente.new("Paula",60,1.80,15,"Mujer",nil,nil,nil);
+        @persona6 = Paciente.new("Paula",60,1.80,15,"Mujer",nil,nil,nil);
 end
 
 describe "#Pruebas para un paciente : " do
@@ -41,6 +42,17 @@ describe "#Pruebas para un paciente : " do
 	it "Se ha recogido su peso" do
     expect(@persona1.peso).not_to eq (nil)
 	end
+    
+end
+
+describe "#Pruebas para el modulo comparable en Individuo" do
+    it "Personas iguales" do
+        expect(@persona5 == @persona6).to eq(true)
+    end
+    
+    it "Personas diferentes" do
+        expect(@persona4 != @persona3).to eq(true)
+    end
     
 end
 

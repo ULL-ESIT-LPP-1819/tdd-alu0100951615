@@ -142,7 +142,7 @@ RSpec.describe Etiqueta do
     
   end
   
-  describe "#Pruebas para el modulo comparable" do
+  describe "#Pruebas para el modulo comparable en etiqueta" do
     it "etiquetas iguales" do
       expect(@etiqueta1 == @etiqueta2).to eq(true)
     end
