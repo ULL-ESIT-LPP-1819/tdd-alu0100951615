@@ -7,6 +7,8 @@ RSpec.describe Etiqueta do
     @etiqueta = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta1 = Info_nutri.new("Pavo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta2 = Info_nutri.new("Pavo",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta3 = Info_nutri.new("Pavo",2000,6.5,0.3,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    
   end
 #Nombre,Energía,Grasas,Grasas Saturadas,Hidratos,Azúcares,Proteínas,Sal,Monoinsaturadas,Polinsaturadas,Polialcoholes,Almidón,Fibra,Vitaminas/minerales,raciones,cantidad(g)
 
@@ -147,6 +149,11 @@ RSpec.describe Etiqueta do
     it "etiquetas distintas" do
       expect(@etiqueta1 != @etiqueta).to eq(true)
     end
-    
+    it "etiquetas mayores" do
+      expect(@etiqueta3 > @etiqueta2).to eq(true)
+    end
+    it "etiquetas menores" do
+      expect(@etiqueta2 < @etiqueta3).to eq(true)
+    end
   end
 end
