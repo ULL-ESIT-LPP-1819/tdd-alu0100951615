@@ -113,6 +113,10 @@ RSpec.describe DLL do
   
   context "#Pruebas de la lista del modulo enumerable en la clase Info_Nutri" do
     it "Maximo" do
+      expect(@dll2.max).to eq(@etiqueta3)
+    end
+    it "Mínimo" do
+      expect(@dll2.min).to eq(@etiqueta2)
     end
   end
   
