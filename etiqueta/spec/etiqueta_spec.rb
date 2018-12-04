@@ -144,6 +144,9 @@ RSpec.describe Etiqueta do
     it "etiquetas iguales" do
       expect(@etiqueta1 == @etiqueta2).to eq(true)
     end
+    it "etiquetas distintas" do
+      expect(@etiqueta1 != @etiqueta).to eq(true)
+    end
     
   end
 end
