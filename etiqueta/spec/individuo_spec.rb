@@ -54,6 +54,14 @@ describe "#Pruebas para el modulo comparable en Individuo" do
         expect(@persona4 != @persona3).to eq(true)
     end
     
+    it "Personas mayores" do
+        expect(@persona4 > @persona3).to eq(true)
+    end
+    
+    it "Personas menores" do
+        expect(@persona3 < @persona4).to eq(true)
+    end
+    
 end
 
 
