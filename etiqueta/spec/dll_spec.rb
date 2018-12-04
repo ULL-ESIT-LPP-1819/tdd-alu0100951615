@@ -16,6 +16,26 @@ RSpec.describe DLL do
     @etiqueta5 = Info_nutri.new("Bacalao",1000,5.5,0.5,2,3.5,0.7,@valor5,1.6,2.7,4.8,9,2.3,3.7,2,500)
     
     @dll1 = DLL.new(@etiqueta1)
+    
+    
+    @dll2 = DLL.new(@etiqueta1)
+    @dll2.insert_tail(@etiqueta2)
+    @dll2.insert_tail(@etiqueta3)
+    @dll2.insert_tail(@etiqueta4)
+    @dll2.insert_tail(@etiqueta5)
+    
+    @paciente1 = Paciente.new("Daniel",80, 2.50, 25,"Hombre",nil, nil, nil)
+    @paciente2 = Paciente.new("Martín",85, 1.50, 20,"Hombre",nil, nil, nil)
+    @paciente3 = Paciente.new("Alejandro",50, 1.70, 15,"Hombre",nil, nil, nil)
+    @paciente4 = Paciente.new("Catalina",60, 1.80, 10,"Mujer",nil, nil, nil)
+    @paciente5 = Paciente.new("Carla",70, 1.90, 14,"Mujer",nil, nil, nil)
+    @dll3 = DLL.new(@paciente1)
+    @dll3.insert_tail(@paciente2)
+    @dll3.insert_tail(@paciente3)
+    @dll3.insert_tail(@paciente4)
+    @dll3.insert_tail(@paciente5)
+    
+    
   end
   
     describe "Pruebas de la creación" do
@@ -90,4 +110,10 @@ RSpec.describe DLL do
       expect(@lista.clasificacionImc).to eq(["Daniel, medio", "Miguel, obeso", "Pablo, obeso", "Paula, medio", "Sheila, medio"])
     end
   end
+  
+  context "#Pruebas de la lista del modulo enumerable en la clase Info_Nutri" do
+    it "Maximo" do
+    end
+  end
+  
 end
