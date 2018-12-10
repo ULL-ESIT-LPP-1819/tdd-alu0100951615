@@ -16,7 +16,7 @@ end
         
         include Comparable
         
-       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor,:menu
+       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor,:menu,:actFisica
        
        def initialize(nombre,peso,talla,edad,sexo,porcentaje,imc,valor)
            super(nombre,edad,sexo)
@@ -34,20 +34,32 @@ end
         @menu = menu
         end
         
+        def addactFisica(actFisica)
+        @actFisica = actFisica
+        end
+        
         def getPesoIdeal
         return (talla - 150) * 0.75 + 50
         end
         
         def getGastoBasal
             if sexo == "Mujer"
-                (10 * peso) + (6.25 * talla) - (5 * edad) - 161
+               return (10 * peso) + (6.25 * talla) - (5 * edad) - 161
             else
-                (10 * peso) + (6.25 * talla) - (5 * edad) + 5
+               return (10 * peso) + (6.25 * talla) - (5 * edad) + 5
             end
         end
         
         def getGastoTermogeno
             return getGastoBasal * 0.10
+        end
+        
+        def getGastoActividadFisica
+            return getGastoBasal * @actFisica
+        end
+        
+        def getGastoTotal
+            return getGastoBasal + getGastoTermogeno + getGastoActividadFisica
         end
         
        

@@ -20,6 +20,7 @@ RSpec.describe Paciente do
     
     @persona = Paciente.new("Daniel",50,150,70,"Hombre",nil,nil,nil)
     @persona.addMenu(@dll1)
+    @persona.addactFisica(0.27)
         
     end
     
@@ -38,6 +39,14 @@ RSpec.describe Paciente do
         
         it "Pillado bien el gasto termógeno " do
             expect(@persona.getGastoTermogeno).to eq(109.25)
+        end
+        
+        it "Gasto por actividad fisica" do
+            expect(@persona.getGastoActividadFisica).to eq(294.975)
+        end
+        
+        it "Gasto energetico total " do
+            expect(@persona.getGastoTotal).to eq(1496.725)
         end
         
     end
