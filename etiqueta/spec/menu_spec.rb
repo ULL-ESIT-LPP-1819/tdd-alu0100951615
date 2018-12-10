@@ -35,6 +35,11 @@ RSpec.describe Paciente do
         it "Pillado bien el gasto energetico basal " do
             expect(@persona.getGastoBasal).to eq(1092.5)
         end
+        
+        it "Pillado bien el gasto termógeno " do
+            expect(@persona.getGastoTermogeno).to eq(109.25)
+        end
+        
     end
     
     

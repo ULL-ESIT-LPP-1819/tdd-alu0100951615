@@ -46,6 +46,10 @@ end
             end
         end
         
+        def getGastoTermogeno
+            return getGastoBasal * 0.10
+        end
+        
        
        def <=>(other)
           [self.nombre,self.peso,self.talla,self.edad,self.sexo,self.porcentaje,self.imc,self.valor] <=> [other.nombre,other.peso,other.talla,other.edad,other.sexo,other.porcentaje,other.imc,other.valor] 
