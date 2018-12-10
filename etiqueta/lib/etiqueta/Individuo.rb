@@ -1,5 +1,5 @@
 class Individuo
-    attr_accessor :nombre,:edad,:sexo
+    attr_accessor :nombre,:edad,:sexo,:menu
     
     def initialize(nombre,edad,sexo)
         @edad = edad
@@ -7,8 +7,12 @@ class Individuo
         @nombre = nombre
     end
     
+    def addMenu(menu)
+        @menu = menu
+    end
+    
     def to_s()
-        return "Nombre :#{@nombre}, Edad #{@edad}, Sexo #{@sexo}"
+        return "Nombre :#{@nombre}, Edad #{@edad}, Sexo #{@sexo}, Lista #{@menu}"
     end
 end  
     
