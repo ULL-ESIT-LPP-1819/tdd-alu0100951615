@@ -62,6 +62,28 @@ end
             return getGastoBasal + getGastoTermogeno + getGastoActividadFisica
         end
         
+        def calculoAlimentacion
+            suma = 0
+            @menu.each do |elemento|
+                suma = suma + elemento.calculate_Kcal
+            end
+            
+            if (suma >= getGastoTotal)
+                if (suma - getGastoTotal <= getGastoTotal * 0.10)
+                    valoracionfinal = "bien"            
+                else
+                    valoracionfinal = "mal"
+                end
+            else
+                if getGastoTotal - suma <= suma * 0.10
+                    valoracionfinal = "bien"
+                else
+                    valoracionfinal = "mal"
+                end
+            end
+            return valoracionfinal
+        end
+        
        
        def <=>(other)
           [self.nombre,self.peso,self.talla,self.edad,self.sexo,self.porcentaje,self.imc,self.valor] <=> [other.nombre,other.peso,other.talla,other.edad,other.sexo,other.porcentaje,other.imc,other.valor] 

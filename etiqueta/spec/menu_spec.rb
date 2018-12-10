@@ -51,5 +51,11 @@ RSpec.describe Paciente do
         
     end
     
+    describe "Pruebas alimentacion" do
+        it "Pillado bien calculoAlimentacion" do
+            expect(@persona.calculoAlimentacion).to eq("mal")
+        end
+    end
+    
     
 end
