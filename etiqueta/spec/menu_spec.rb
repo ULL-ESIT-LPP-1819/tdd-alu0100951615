@@ -16,14 +16,24 @@ RSpec.describe Paciente do
     @dll1.insert_tail(@etiqueta4)
     @dll1.insert_tail(@etiqueta5)
     
-    @persona = Individuo.new("Daniel",13,"Hombre")
+    #Poner talla en CM
+    
+    @persona = Paciente.new("Daniel",50,150,70,"Hombre",nil,nil,nil)
     @persona.addMenu(@dll1)
         
     end
     
-    describe "Ver si se ha metido bien la lista " do
+    describe "Pruebas metodos individuales " do
         it "Se introduce bien la lista de etiquetas" do
             expect(@dll1.to_s).to eq("(1 gr,5 gr,10 gr,25 gr,50 gr,)")
+        end
+        
+        it "Pillado bien el peso ideal" do
+            expect(@persona.getPesoIdeal).to eq(50)
+        end
+        
+        it "Pillado bien el gasto energetico basal " do
+            expect(@persona.getGastoBasal).to eq(1092.5)
         end
     end
     

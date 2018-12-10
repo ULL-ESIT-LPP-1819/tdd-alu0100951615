@@ -1,14 +1,10 @@
 class Individuo
-    attr_accessor :nombre,:edad,:sexo,:menu
+    attr_accessor :nombre,:edad,:sexo
     
     def initialize(nombre,edad,sexo)
         @edad = edad
         @sexo = sexo
         @nombre = nombre
-    end
-    
-    def addMenu(menu)
-        @menu = menu
     end
     
     def to_s()
@@ -20,7 +16,7 @@ end
         
         include Comparable
         
-       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor
+       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor,:menu
        
        def initialize(nombre,peso,talla,edad,sexo,porcentaje,imc,valor)
            super(nombre,edad,sexo)
@@ -33,6 +29,23 @@ end
            @imc = imc
            @valor = valor
        end
+       
+        def addMenu(menu)
+        @menu = menu
+        end
+        
+        def getPesoIdeal
+        return (talla - 150) * 0.75 + 50
+        end
+        
+        def getGastoBasal
+            if sexo == "Mujer"
+                (10 * peso) + (6.25 * talla) - (5 * edad) - 161
+            else
+                (10 * peso) + (6.25 * talla) - (5 * edad) + 5
+            end
+        end
+        
        
        def <=>(other)
           [self.nombre,self.peso,self.talla,self.edad,self.sexo,self.porcentaje,self.imc,self.valor] <=> [other.nombre,other.peso,other.talla,other.edad,other.sexo,other.porcentaje,other.imc,other.valor] 
