@@ -73,6 +73,17 @@ RSpec.describe Paciente do
             end
         end
         
+        it "Se pilla los menus de las personas " do
+            @lista_persona.each do |elemento|
+                expect(elemento.menu).not_to eq(nil)
+            end
+        end
+    end
+    
+    describe "Pruebas para ver si se cumplen las expectativas de los menús en las personas " do
+        it "Menu para la persona 1" do
+	        expect(@persona1.calculoAlimentacion).to eq("mal")
+	    end
     end
     
     
