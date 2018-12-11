@@ -48,6 +48,13 @@ RSpec.describe Paciente do
                 expect(elemento.actFisica).not_to eq(nil)
             end
         end
+        
+        it "Se pilla el gasto basal" do
+            @lista_persona.each do |elemento|
+                expect(elemento.getGastoBasal).not_to eq(nil)
+            end
+        end
+        
     end
     
     
