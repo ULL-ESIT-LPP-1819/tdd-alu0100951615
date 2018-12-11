@@ -6,9 +6,9 @@ RSpec.describe Paciente do
         
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta2 = Info_nutri.new("Almendras",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
-    @etiqueta3 = Info_nutri.new("Pollo",1000,5.5,0.5,2,3.5,0.7,10,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta3 = Info_nutri.new("Pollo",950,5.5,0.5,2,3.5,0.7,10,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta4 = Info_nutri.new("Papas Fritas",1000,5.5,0.5,2,3.5,0.7,25,1.6,2.7,4.8,9,2.3,3.7,2,500)
-    @etiqueta5 = Info_nutri.new("Bacalao",1000,5.5,0.5,2,3.5,0.7,50,1.6,2.7,4.8,9,2.3,3.7,2,500)
+    @etiqueta5 = Info_nutri.new("Helado",-30,1,0.5,2,3.5,0.7,9,1.6,2.7,4.8,9,2.3,3.7,1,10)
     @etiqueta6 = Info_nutri.new("Pavo",2000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta7 = Info_nutri.new("Tomates",3000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta8 = Info_nutri.new("Papas",4000,5.5,0.5,2,3.5,0.7,10,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -28,11 +28,11 @@ RSpec.describe Paciente do
     @persona3 = Paciente.new("Alejandro", 75, 1.80, 16, "Hombre", nil, nil, nil)
     @persona4 = Paciente.new("Daniel", 115, 1.95, 20, "Hombre", nil, nil, nil)
     @persona5 = Paciente.new("Eduardo", 70, 1.78, 14, "Hombre", nil, nil, nil)
-    @persona1.addactFisica(0.12)
+    @persona1.addactFisica(0.54)
     @persona2.addactFisica(0.27)
     @persona3.addactFisica(0.27)
     @persona4.addactFisica(0.54)
-    @persona5.addactFisica(0.54)
+    @persona5.addactFisica(0.70)
     @persona1.addMenu(@menu1)
     @persona2.addMenu(@menu2)
     @persona3.addMenu(@menu3)
@@ -82,7 +82,19 @@ RSpec.describe Paciente do
     
     describe "Pruebas para ver si se cumplen las expectativas de los menús en las personas " do
         it "Menu para la persona 1" do
-	        expect(@persona1.calculoAlimentacion).to eq("mal")
+	        expect(@persona1.calculoAlimentacion).to eq("Menu adecuado")
+	    end
+	    it "Menu para la persona 2" do
+	        expect(@persona2.calculoAlimentacion).to eq("Menu no adecuado")
+	    end
+	    it "Menu para la persona 3" do
+	        expect(@persona3.calculoAlimentacion).to eq("Menu no adecuado")
+	    end
+	    it "Menu para la persona 4" do
+	        expect(@persona4.calculoAlimentacion).to eq("Menu no adecuado")
+	    end
+	    it "Menu para la persona 5" do
+	        expect(@persona5.calculoAlimentacion).to eq("Menu adecuado")
 	    end
     end
     

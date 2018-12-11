@@ -71,15 +71,15 @@ end
             end
             if (@suma >= getGastoTotal)
                 if (@suma - getGastoTotal <= getGastoTotal * 0.10)
-                    valoracionfinal = "bien"            
+                    valoracionfinal = "Menu adecuado"            
                 else
-                    valoracionfinal = "mal"
+                    valoracionfinal = "Menu no adecuado"
                 end
             else
                 if getGastoTotal - @suma <= @suma * 0.10
-                    valoracionfinal = "bien"
+                    valoracionfinal = "Menu adecuado"
                 else
-                    valoracionfinal = "mal"
+                    valoracionfinal = "Menu no adecuado"
                 end
             end
             return valoracionfinal
