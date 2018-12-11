@@ -55,6 +55,12 @@ RSpec.describe Paciente do
             end
         end
         
+        it "Se pilla el gasto Termógeno" do
+            @lista_persona.each do |elemento|
+                expect(elemento.getGastoTermogeno).not_to eq(nil)
+            end
+        end
+        
     end
     
     
