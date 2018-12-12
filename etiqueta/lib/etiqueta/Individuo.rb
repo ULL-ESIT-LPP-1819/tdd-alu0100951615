@@ -16,7 +16,7 @@ end
         
         include Comparable
         
-       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor,:menu,:actFisica
+       attr_accessor :nombre,:edad,:sexo,:peso,:talla,:porcentaje,:imc,:valor,:menu,:actFisica,:suma
        
        def initialize(nombre,peso,talla,edad,sexo,porcentaje,imc,valor)
            super(nombre,edad,sexo)
@@ -61,24 +61,25 @@ end
         def getGastoTotal
             return getGastoBasal + getGastoTermogeno + getGastoActividadFisica
         end
+   
         
         def calculoAlimentacion
-            suma = 0
+            @suma = 0
             @menu.each do |elemento|
-                suma = suma + elemento.calculate_Kcal
+                @suma = @suma + elemento.calculate_Kcal
+                
             end
-            
-            if (suma >= getGastoTotal)
-                if (suma - getGastoTotal <= getGastoTotal * 0.10)
-                    valoracionfinal = "bien"            
+            if (@suma >= getGastoTotal)
+                if (@suma - getGastoTotal <= getGastoTotal * 0.10)
+                    valoracionfinal = "Menu adecuado"            
                 else
-                    valoracionfinal = "mal"
+                    valoracionfinal = "Menu no adecuado"
                 end
             else
-                if getGastoTotal - suma <= suma * 0.10
-                    valoracionfinal = "bien"
+                if getGastoTotal - @suma <= @suma * 0.10
+                    valoracionfinal = "Menu adecuado"
                 else
-                    valoracionfinal = "mal"
+                    valoracionfinal = "Menu no adecuado"
                 end
             end
             return valoracionfinal
