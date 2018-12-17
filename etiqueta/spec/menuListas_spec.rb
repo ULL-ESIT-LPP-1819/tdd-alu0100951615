@@ -6,6 +6,8 @@ RSpec.describe Paciente do
         
     @arrayOrdenadoEtiquetasFor = []
     @arrayOrdenadoIndividuosFor = []
+    @arrayOrdenadoEtiquetasEach = []
+    @arrayOrdenadoIndividuosEach = []
     @total_menu = 0.0
                 
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -77,8 +79,8 @@ RSpec.describe Paciente do
     
     end
     
-    describe "Probando los bucles para ordenar las calorías" do
-        it "Probando los bucles for " do
+    describe "Probando los bucles For para ordenar las calorias" do
+        it "Probando los bucles for para las etiquetas" do
             #en @total_menu se guardan las calorias de cada menu
             
             for menu in @menus
@@ -103,8 +105,8 @@ RSpec.describe Paciente do
     
     expect(@arrayOrdenadoEtiquetasFor).to eq([3169.1000000000004, 3179.1, 4132.72, 4410.72, 5223.339999999999, 5881.099999999999, 
     6410.719999999999, 7179.1, 9662.72, 21801.199999999997])
-            
-            
+    end            
+        it "Probando los bucles for para los individuos" do
             for persona in @lista
             @arrayOrdenadoIndividuosFor.insert(0,persona.getGastoTotal)
             end
@@ -124,8 +126,43 @@ RSpec.describe Paciente do
     expect(@arrayOrdenadoIndividuosFor).to eq([802.9125, 803.4975, 821.4862499999999, 871.5375, 994.74375, 1098.4125, 
     1140.825, 1163.0249999999999, 1750.1875, 2070.34375])
             
+        end
+            
+    end
+    
+    describe "Probando los bucles Each para ordenar las calorias again" do
+        it "probando los bucles Each para las etiquetas" do
+            @menus.each do |menu|
+                @total_menu = 0.0
+                menu.each do |etiqueta|
+                    @total_menu = etiqueta.calculate_Kcal + etiqueta.calorias + @total_menu
+                end
+                @arrayOrdenadoEtiquetasEach.insert(0,@total_menu)
+            end
+            
+            @arrayOrdenadoEtiquetasEach.each_with_index do |el,i|
+                min = i
+            @arrayOrdenadoEtiquetasEach[1..-1].each_with_index do |el,j|
+                if @arrayOrdenadoEtiquetasEach[j] > @arrayOrdenadoEtiquetasEach[min]
+                    aux = @arrayOrdenadoEtiquetasEach[j]
+                    @arrayOrdenadoEtiquetasEach[j] = @arrayOrdenadoEtiquetasEach[min]
+                    @arrayOrdenadoEtiquetasEach[min] = aux
+                end
+            end
+        end
+            
+            expect(@arrayOrdenadoEtiquetasEach).to eq([3169.1000000000004, 3179.1, 4132.72, 4410.72, 5223.339999999999, 5881.099999999999, 6410.719999999999, 
+            7179.1, 9662.72, 21801.199999999997])
+            
             
         end
+        it "Probando los bucles Each para los individuos" do
+            
+            
+        end
+        
+        
     end
+    
     
 end
