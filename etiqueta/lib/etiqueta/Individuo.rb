@@ -85,6 +85,30 @@ end
             return valoracionfinal
         end
         
+        def calculoValoracionNutricional
+            @suma = 0
+            @menu.each do |elemento|
+                elemento.each do |elemento2|
+                @suma = @suma + elemento2.calculate_Kcal
+            end
+                
+            end
+            if (@suma >= getGastoTotal)
+                if (@suma - getGastoTotal <= getGastoTotal * 0.10)
+                    valoracionfinal = "Menu adecuado"            
+                else
+                    valoracionfinal = "Menu no adecuado"
+                end
+            else
+                if getGastoTotal - @suma <= @suma * 0.10
+                    valoracionfinal = "Menu adecuado"
+                else
+                    valoracionfinal = "Menu no adecuado"
+                end
+            end
+            return valoracionfinal
+        end
+        
        
        def <=>(other)
           [self.nombre,self.peso,self.talla,self.edad,self.sexo,self.porcentaje,self.imc,self.valor] <=> [other.nombre,other.peso,other.talla,other.edad,other.sexo,other.porcentaje,other.imc,other.valor] 
