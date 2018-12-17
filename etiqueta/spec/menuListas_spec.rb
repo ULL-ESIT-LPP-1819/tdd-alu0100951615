@@ -100,12 +100,29 @@ RSpec.describe Paciente do
             end
         end
     end
+    
+    expect(@arrayOrdenadoEtiquetasFor).to eq([3169.1000000000004, 3179.1, 4132.72, 4410.72, 5223.339999999999, 5881.099999999999, 
+    6410.719999999999, 7179.1, 9662.72, 21801.199999999997])
             
-            puts @arrayOrdenadoEtiquetasFor
             
             for persona in @lista
             @arrayOrdenadoIndividuosFor.insert(0,persona.getGastoTotal)
             end
+            
+            n=@arrayOrdenadoIndividuosFor.length
+            for i in 0...n
+            min=i
+            for j in (i+1)...n
+            if @arrayOrdenadoIndividuosFor[j] < @arrayOrdenadoIndividuosFor[min]
+                aux = @arrayOrdenadoIndividuosFor[j]
+                @arrayOrdenadoIndividuosFor[j] = @arrayOrdenadoIndividuosFor[min]
+                @arrayOrdenadoIndividuosFor[min] = aux
+            end
+        end
+    end
+    
+    expect(@arrayOrdenadoIndividuosFor).to eq([802.9125, 803.4975, 821.4862499999999, 871.5375, 994.74375, 1098.4125, 
+    1140.825, 1163.0249999999999, 1750.1875, 2070.34375])
             
             
         end
