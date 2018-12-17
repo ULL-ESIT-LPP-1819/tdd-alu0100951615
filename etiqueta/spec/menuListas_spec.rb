@@ -3,6 +3,10 @@ require 'benchmark'
 
 RSpec.describe Paciente do
     before :each do
+        
+    @arrayOrdenadoEtiquetasFor = []
+    @arrayOrdenadoIndividuosFor = []
+    @total_menu = 0.0
                 
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
     @etiqueta2 = Info_nutri.new("Almendras",1000,5.5,0.5,2,3.5,0.7,5,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -25,6 +29,7 @@ RSpec.describe Paciente do
     @menu8 =  [@etiqueta3,@etiqueta5,@etiqueta9]
     @menu9 =  [@etiqueta5,@etiqueta6,@etiqueta2,@etiqueta1]
     @menu10=  [@etiqueta2,@etiqueta4,@etiqueta7]
+    #33
     
     @menus = [@menu1,@menu2,@menu3,@menu4,@menu5,@menu6,@menu7,@menu8,@menu9,@menu10]
     
@@ -58,9 +63,52 @@ RSpec.describe Paciente do
     @persona8.addMenu(@menu8)
     @persona9.addMenu(@menu9)
     @persona10.addMenu(@menu10)
-        
-        
-        
+    
+    @lista = DLL.new(@persona1)
+    @lista.insert_tail(@persona2)
+    @lista.insert_tail(@persona3)
+    @lista.insert_tail(@persona4)
+    @lista.insert_tail(@persona5)
+    @lista.insert_tail(@persona6)
+    @lista.insert_tail(@persona7)
+    @lista.insert_tail(@persona8)
+    @lista.insert_tail(@persona9)
+    @lista.insert_tail(@persona10)
     
     end
+    
+    describe "Probando los bucles para ordenar las calorías" do
+        it "Probando los bucles for " do
+            #en @total_menu se guardan las calorias de cada menu
+            
+            for menu in @menus
+            @total_menu = 0.0
+             for etiqueta in menu
+                @total_menu = etiqueta.calculate_Kcal + etiqueta.calorias + @total_menu
+                end
+                @arrayOrdenadoEtiquetasFor.insert(0,@total_menu)
+            end
+            
+            n=@arrayOrdenadoEtiquetasFor.length
+            for i in 0...n
+            min=i
+            for j in (i+1)...n
+            if @arrayOrdenadoEtiquetasFor[j] < @arrayOrdenadoEtiquetasFor[min]
+                aux = @arrayOrdenadoEtiquetasFor[j]
+                @arrayOrdenadoEtiquetasFor[j] = @arrayOrdenadoEtiquetasFor[min]
+                @arrayOrdenadoEtiquetasFor[min] = aux
+            end
+        end
+    end
+            
+            puts @arrayOrdenadoEtiquetasFor
+            
+            for persona in @lista
+            @arrayOrdenadoIndividuosFor.insert(0,persona.getGastoTotal)
+            end
+            
+            
+        end
+    end
+    
 end
