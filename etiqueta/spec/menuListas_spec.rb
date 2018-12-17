@@ -8,6 +8,8 @@ RSpec.describe Paciente do
     @arrayOrdenadoIndividuosFor = []
     @arrayOrdenadoEtiquetasEach = []
     @arrayOrdenadoIndividuosEach = []
+    @arrayOrdenadoEtiquetasSort = []
+    @arrayOrdenadoIndividuosSort = []
     @total_menu = 0.0
                 
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -90,7 +92,7 @@ RSpec.describe Paciente do
                 end
                 @arrayOrdenadoEtiquetasFor.insert(0,@total_menu)
             end
-            
+            #SelectionSort
             n=@arrayOrdenadoEtiquetasFor.length
             for i in 0...n
             min=i
@@ -157,11 +159,66 @@ RSpec.describe Paciente do
             
         end
         it "Probando los bucles Each para los individuos" do
+            @lista.each do |persona|
+                @arrayOrdenadoIndividuosEach.insert(0,persona.getGastoTotal)
+            end
+            
+            @arrayOrdenadoIndividuosEach.each_with_index do |el,i|
+                min = i
+            @arrayOrdenadoIndividuosEach[1..-1].each_with_index do |el,j|
+                if @arrayOrdenadoIndividuosEach[j] > @arrayOrdenadoIndividuosEach[min]
+                    aux = @arrayOrdenadoIndividuosEach[j]
+                    @arrayOrdenadoIndividuosEach[j] = @arrayOrdenadoIndividuosEach[min]
+                    @arrayOrdenadoIndividuosEach[min] = aux
+                end
+            end
+        end
+        
+        expect(@arrayOrdenadoIndividuosEach).to eq([802.9125, 803.4975, 821.4862499999999, 871.5375, 994.74375, 
+        1098.4125, 1140.825, 1163.0249999999999, 1750.1875, 2070.34375])
+        
+        end
+    end
+    
+    describe "Probando el metodo Sort para ordenar estas cosas otra vez" do
+        it "Ordenar las etiquetas con sort" do
+            @menus.each do |menu|
+                @total_menu = 0.0
+                menu.each do |etiqueta|
+                    @total_menu = etiqueta.calculate_Kcal + etiqueta.calorias + @total_menu
+                end
+                @arrayOrdenadoEtiquetasSort.insert(0,@total_menu)
+            end
+            
+            puts @arrayOrdenadoEtiquetasSort
+            
+            puts "|||||||||||||||||||||"
+            
+            @arrayOrdenadoEtiquetasSort.sort
+            
+            puts "|||||||||||||||||||||"
+            
+            puts @arrayOrdenadoEtiquetasSort
             
             
         end
         
-        
+        it "Ordenar los individuos con sort" do
+            @lista.each do |persona|
+                @arrayOrdenadoIndividuosSort.insert(0,persona.getGastoTotal)
+            end
+            
+            puts @arrayOrdenadoIndividuosSort
+            
+            puts "|||||||||||||||||||||"
+            
+            @arrayOrdenadoIndividuosSort.sort  #--- Se Supone que esto tiene que ordenar el vector xD pero no hace una mierda
+            
+            puts "|||||||||||||||||||||"
+            
+            puts @arrayOrdenadoIndividuosSort
+            
+        end
     end
     
     
