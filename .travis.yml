@@ -1,5 +1,5 @@
-sudo: false
 language: ruby
+sudo: false
 before_install: cd etiqueta
 rvm:
    2.4.0
