@@ -230,8 +230,6 @@ RSpec.describe Paciente do
             array[min] = aux
           end
         end
-        
-        array
       end
     end
     
