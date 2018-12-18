@@ -10,6 +10,7 @@ RSpec.describe Paciente do
     @arrayOrdenadoIndividuosEach = []
     @arrayOrdenadoEtiquetasSort = []
     @arrayOrdenadoIndividuosSort = []
+    @arrayOrdenadoEtiquetas = []
     @total_menu = 0.0
                 
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -215,5 +216,62 @@ RSpec.describe Paciente do
         end
     end
     
+    context "Benchmark" do
+	  
+	  
+	  
+	    def for_array! (array)
+        for i in 0..array.size 
+        min = i
+          for j in i+1..array.size-1    
+          if(array[j] > array[min])
+            aux = array[j]
+            array[j] = array[min]
+            array[min] = aux
+          end
+        end
+        
+        array
+      end
+    end
+    
+     def each_array! (array) 
+        array.each do
+           total_menu = 0
+          array.each_with_index do |el, i|
+              min = i
+            array[1..-1].each_with_index do |el,j|
+             if array[j] > array[min]
+              aux = array[j]
+                    array[j] = array[min]
+                    array[min] = aux
+            end
+          end
+    
+      end
+    end
+end
+
+it "Insertando elemento en la lista" do 
+    
+     for menu in @menus
+     @total_menu = 0
+       for etiqueta in menu
+       @total_menu = etiqueta.calculate_Kcal + etiqueta.calorias + @total_menu 
+     end
+       @arrayOrdenadoEtiquetas.insert(0,@total_menu)
+    
+    end
+  end
+
+it "Comprobación benchmark"do
+      Benchmark.bmbm do |x|
+        
+         x.report("con el metodo sort etiqueta") { @arrayOrdenadoEtiquetas.sort}
+          x.report("con el metodo for etiqueta") {for_array!(@arrayOrdenadoEtiquetas)}
+           x.report("con el metodo each etiqueta") {each_array!(@arrayOrdenadoEtiquetas)}
+      end
+    end
+end
     
 end
