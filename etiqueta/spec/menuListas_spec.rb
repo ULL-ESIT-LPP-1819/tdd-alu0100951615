@@ -11,6 +11,7 @@ RSpec.describe Paciente do
     @arrayOrdenadoEtiquetasSort = []
     @arrayOrdenadoIndividuosSort = []
     @arrayOrdenadoEtiquetas = []
+     @arrayOrdenadoLista = []
     @total_menu = 0.0
                 
     @etiqueta1 = Info_nutri.new("Lechuga",1000,5.5,0.5,2,3.5,0.7,1,1.6,2.7,4.8,9,2.3,3.7,2,500)
@@ -217,9 +218,7 @@ RSpec.describe Paciente do
     end
     
     context "Benchmark" do
-	  
-	  
-	  
+        
 	    def for_array! (array)
         for i in 0..array.size 
         min = i
@@ -245,12 +244,11 @@ RSpec.describe Paciente do
                     array[min] = aux
             end
           end
-    
       end
     end
 end
 
-it "Insertando elemento en la lista" do 
+it "Insertando elemento en el vector" do 
     
      for menu in @menus
      @total_menu = 0
@@ -261,6 +259,15 @@ it "Insertando elemento en la lista" do
     
     end
   end
+  
+  it "Insertando elemento en la lista" do 
+    
+     for persona in @lista
+      
+        @arrayOrdenadoLista.insert(0,persona.getGastoTotal)
+    
+    end
+  end
 
 it "Comprobación benchmark"do
       Benchmark.bmbm do |x|
@@ -268,8 +275,10 @@ it "Comprobación benchmark"do
          x.report("con el metodo sort etiqueta") { @arrayOrdenadoEtiquetas.sort}
           x.report("con el metodo for etiqueta") {for_array!(@arrayOrdenadoEtiquetas)}
            x.report("con el metodo each etiqueta") {each_array!(@arrayOrdenadoEtiquetas)}
-      end
+              x.report("con el metodo sort lista") {  @arrayOrdenadoLista.sort}
+          x.report("con el metodo for lista") {for_array!( @arrayOrdenadoLista)}
+           x.report("con el metodo each lista") {each_array!( @arrayOrdenadoLista)}
+            end
+        end
     end
-end
-    
 end
