@@ -2,6 +2,11 @@ class Menu
   attr_accessor :name, :ingredients, :instructions
 
   def initialize(name, &block)
+    @desayuno_array = []
+    @almuerzo = []
+    @cena = []
+    @titulo
+    @ingesta
     @name = name
     @ingredients = []
     @instructions = []
@@ -26,33 +31,25 @@ class Menu
 
     output
   end
+    def desayuno(name, options = {})
+        desayuno = name
+        desayuno << "(#{options[:descripcion]}" if options[:descripcion]
+        desayuno << "(#{options[:porcion]}" if options[:porcion]
+        desayuno << "(#{options[:grasas]}" if options[:grasas]
+        desayuno << "(#{options[:gramos]}" if options[:gramos]
+        desayuno << "(#{options[:carbohidratos]}" if options[:carbohidratos]
+        desayuno << "(#{options[:proteinas]}" if options[:proteinas]
+        desayuno << "(#{options[:fibra]}" if options[:fibra]
+        desayuno << "(#{options[:sal]}" if options[:sal]
+        
+        @desayuno_array << desayuno
 
-  def ingredient(name, options = {})
-    ingredient = name
-    ingredient << " (#{options[:amount]})" if options[:amount]
-
-    @ingredients << ingredient
+  end   
+  
+  def get_Array()
+    return @desayuno_array
   end
+  
 
-    
-
-  def step(text, options = {})
-    instruction = text
-    instruction << " (#{options[:during]})" if options[:during]
-
-    @instructions << instruction
-  end
 end
 
-mac_and_cheese = Menu.new("Noodles and Cheese") do 
-  ingredient "Water",   :amount => "2 cups"
-  ingredient "Noodles", :amount => "1 cup"
-  ingredient "Cheese",  :amount => "1/2 cup"
-
-  step "Heat water to boiling.",        :during => "5 minutes"
-  step "Add noodles to boiling water.", :during => "6 minutes"
-  step "Drain water."
-  step "Mix cheese in with noodles."
-end
-
-puts mac_and_cheese
