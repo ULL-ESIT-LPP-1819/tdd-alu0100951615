@@ -28,19 +28,94 @@ class Menu
     output << "\n#{'=' * @name.size*3}\n\n"
     output << "\t \t \t Grasa \t Carbohidratos \t Proteinas \t fibra \t sal \t valor energético \n \n "
 
+    @valor_total = 0
     
     @desayuno_array.each do |elemento|
+        if elemento[:descripcion] == nil
+            elemento[:descripcion] = 0.00
+        end
+        if elemento[:fibra] == nil
+            elemento[:fibra] = 0.00
+        end
+        if elemento[:grasas] == nil
+            elemento[:grasas] = 0.00
+        end
+        if elemento[:carbohidratos] == nil
+            elemento[:carbohidratos] = 0.00
+        end
+        if elemento[:proteinas] == nil
+            elemento[:proteinas] = 0.00
+        end
+        if elemento[:sal] == nil
+            elemento[:sal] = 0.00
+        end
         puts elemento[:descripcion]
+        puts elemento[:grasas]
         puts elemento[:carbohidratos]
         puts elemento[:proteinas]
         puts elemento[:fibra]
         puts elemento[:sal]
-        #puts @valor_energetico = (elemento[:grasa]*9 + elemento[:carbohidratos]*4 + elemento[:proteinas]*4 + elemento[:fibra]*2 + elemento[:sal]*6)*elemento[:porciones]
+        puts @valor_energetico = (elemento[:grasas]*9 + elemento[:carbohidratos]*4 + elemento[:proteinas]*4 +elemento[:fibra]*2 + elemento[:sal]*6)/10
     end
+    
+    @almuerzo.each do |elemento|
+        if elemento[:descripcion] == nil
+            elemento[:descripcion] = 0.00
+        end
+        if elemento[:fibra] == nil
+            elemento[:fibra] = 0.00
+        end
+        if elemento[:grasas] == nil
+            elemento[:grasas] = 0.00
+        end
+        if elemento[:carbohidratos] == nil
+            elemento[:carbohidratos] = 0.00
+        end
+        if elemento[:proteinas] == nil
+            elemento[:proteinas] = 0.00
+        end
+        if elemento[:sal] == nil
+            elemento[:sal] = 0.00
+        end
+        puts elemento[:descripcion]
+        puts elemento[:grasas]
+        puts elemento[:carbohidratos]
+        puts elemento[:proteinas]
+        puts elemento[:fibra]
+        puts elemento[:sal]
+        puts @valor_energetico = (elemento[:grasas]*9 + elemento[:carbohidratos]*4 + elemento[:proteinas]*4 +elemento[:fibra]*2 + elemento[:sal]*6)/10
+    end
+    
+     @cena.each do |elemento|
+        if elemento[:descripcion] == nil
+            elemento[:descripcion] = 0.00
+        end
+        if elemento[:fibra] == nil
+            elemento[:fibra] = 0.00
+        end
+        if elemento[:grasas] == nil
+            elemento[:grasas] = 0.00
+        end
+        if elemento[:carbohidratos] == nil
+            elemento[:carbohidratos] = 0.00
+        end
+        if elemento[:proteinas] == nil
+            elemento[:proteinas] = 0.00
+        end
+        if elemento[:sal] == nil
+            elemento[:sal] = 0.00
+        end
+        puts elemento[:descripcion]
+        puts elemento[:grasas]
+        puts elemento[:carbohidratos]
+        puts elemento[:proteinas]
+        puts elemento[:fibra]
+        puts elemento[:sal]
+        puts @valor_energetico = (elemento[:grasas]*9 + elemento[:carbohidratos]*4 + elemento[:proteinas]*4 +elemento[:fibra]*2 + elemento[:sal]*6)/10
+    end
+    
  end
-  
-  
-   #(9*grasas +   4*hidratos_carbono  2*fibra + 4*proteina + 6*sal)*porciones
+
     
     
     def titulo(name)
