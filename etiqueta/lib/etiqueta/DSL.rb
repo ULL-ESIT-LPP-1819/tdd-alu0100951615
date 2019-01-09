@@ -6,10 +6,11 @@ class Menu
     @almuerzo = []
     @cena = []
     @titulo
-    @ingesta
+    @ingesta = []
     @name = name
     @ingredients = []
     @instructions = []
+    @valor_energetico = 0
 
     if block_given?  
       if block.arity == 1
@@ -21,16 +22,43 @@ class Menu
   end
 
   def to_s
+       
     output = @name
-    output << "\n#{'=' * @name.size}\n\n"
-    output << "Ingredients: #{@ingredients.join(', ')}\n\n"
+    output << "\t \t \t Composición nutricional"
+    output << "\n#{'=' * @name.size*3}\n\n"
+    output << "\t \t \t Grasa \t Carbohidratos \t Proteinas \t fibra \t sal \t valor energético \n \n "
 
-    @instructions.each_with_index do |instruction, index|
-      output << "#{index + 1}) #{instruction}\n"
+    
+    @desayuno_array.each do |elemento|
+        puts elemento[:descripcion]
+        puts elemento[:carbohidratos]
+        puts elemento[:proteinas]
+        puts elemento[:fibra]
+        puts elemento[:sal]
+        #puts @valor_energetico = (elemento[:grasa]*9 + elemento[:carbohidratos]*4 + elemento[:proteinas]*4 + elemento[:fibra]*2 + elemento[:sal]*6)*elemento[:porciones]
     end
+ end
+  
+  
+   #(9*grasas +   4*hidratos_carbono  2*fibra + 4*proteina + 6*sal)*porciones
+    
+    
+    def titulo(name)
+        @titulo = name
+    end
+    
 
-    output
-  end
+    
+    def ingesta(name,options = {})
+      ingesta = name
+      ingesta << "(#{options[:min]}" if options[:min]
+      ingesta << "(#{options[:max]}" if options[:max] 
+      
+      @ingesta << ingesta
+    end
+    
+   
+    
     def desayuno(name, options = {})
         desayuno = name
         desayuno << "(#{options[:descripcion]}" if options[:descripcion]
@@ -46,10 +74,34 @@ class Menu
 
   end   
   
-  def get_Array()
-    return @desayuno_array
+  
+  def almuerzo(name,options = {})
+      almuerzo = name
+      almuerzo << "(#{options[:descripcion]}" if options[:descripcion]
+      almuerzo << "(#{options[:porcion]}" if options[:porcion]
+      almuerzo << "(#{options[:grasas]}" if options[:grasas]
+      almuerzo << "(#{options[:carbohidratos]}" if options[:carbohidratos]
+      almuerzo << "(#{options[:proteinas]}" if options[:proteinas]
+      almuerzo << "(#{options[:fibra]}" if options[:fibra]
+      almuerzo << "(#{options[:sal]}" if options[:sal]
+       
+      @almuerzo << almuerzo
   end
   
+  
+  def cena(name, options = {})
+     cena = name 
+     cena << "(#{options[:descripcion]}" if options[:descripcion]
+     cena << "(#{options[:porcion]}" if options[:porcion]
+     cena << "(#{options[:gramo]}" if options[:gramo]
+     cena << "(#{options[:grasa]}" if options[:grasa]
+     cena << "(#{options[:proteina]}" if options[:proteina]
+     cena << "(#{options[:carbohidratos]}" if options[:carbohidratos]
+     cena << "(#{options[:sal]}" if options[:sal]
+      
+     @cena << cena
+  end
+
 
 end
 

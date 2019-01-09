@@ -269,16 +269,16 @@ it "Insertando elemento en el vector" do
     end
   end
 
-it "Comprobación benchmark"do
-      Benchmark.bmbm do |x|
+#it "Comprobación benchmark"do
+      #Benchmark.bmbm do |x|
         
-         x.report("con el metodo sort etiqueta") { @arrayOrdenadoEtiquetas.sort}
-          x.report("con el metodo for etiqueta") {for_array!(@arrayOrdenadoEtiquetas)}
-           x.report("con el metodo each etiqueta") {each_array!(@arrayOrdenadoEtiquetas)}
-              x.report("con el metodo sort lista") {  @arrayOrdenadoLista.sort}
-          x.report("con el metodo for lista") {for_array!( @arrayOrdenadoLista)}
-           x.report("con el metodo each lista") {each_array!( @arrayOrdenadoLista)}
-            end
-        end
+         #x.report("con el metodo sort etiqueta") { @arrayOrdenadoEtiquetas.sort}
+          #x.report("con el metodo for etiqueta") {for_array!(@arrayOrdenadoEtiquetas)}
+           #x.report("con el metodo each etiqueta") {each_array!(@arrayOrdenadoEtiquetas)}
+              #x.report("con el metodo sort lista") {  @arrayOrdenadoLista.sort}
+          #x.report("con el metodo for lista") {for_array!( @arrayOrdenadoLista)}
+           #x.report("con el metodo each lista") {each_array!( @arrayOrdenadoLista)}
+            #end
+       # end
     end
 end
